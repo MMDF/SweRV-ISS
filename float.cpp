@@ -18,7 +18,6 @@
 
 #include <cfenv>
 #include <cmath>
-#include <emmintrin.h>
 #include <array>
 #include "Hart.hpp"
 #include "instforms.hpp"
@@ -338,9 +337,7 @@ setSimulatorRoundingMode(RoundingMode mode)
 void
 clearSimulatorFpFlags()
 {
-  uint32_t val = _mm_getcsr();
-  val &= ~uint32_t(0x3f);
-  _mm_setcsr(val);
+  return;
   // std::feclearexcept(FE_ALL_EXCEPT);
 }
 
